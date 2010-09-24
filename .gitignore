@@ -1,0 +1,11 @@
+build/
+dist/
+*.egg-info/
+target
+.*.swp
+log.roo
+*.pyc
+*.db
+*.log
+pip-log.txt
+.DS_Store
