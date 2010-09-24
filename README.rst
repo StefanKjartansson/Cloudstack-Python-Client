@@ -3,7 +3,15 @@ Cloud.com Cloudstack Client
 --------------
 
 Provides a simple python client to cloud.com's api. 
- 
+
+=========
+Installation
+=========
+
+1. Checkout repository
+2. sudo python setup.py install
+
+
 =========
 Usage
 =========
