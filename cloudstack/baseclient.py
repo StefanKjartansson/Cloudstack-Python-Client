@@ -49,7 +49,8 @@ class BaseClient(object):
                 urllib2.HTTPCookieProcessor())
             urllib2.install_opener(self.caller)
             #Will throw error if login fails.
-            self.__execute__('login', {'username': self.username,
+            self.login_response = self.__execute__('login', {
+                'username': self.username,
                 'password': hashlib.md5(self.password).hexdigest()})
             self.is_connected = True
         else:
