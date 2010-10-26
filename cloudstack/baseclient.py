@@ -22,7 +22,7 @@ logger = logging.getLogger('cloud_com.baseclient')
 class BaseClient(object):
 
     def __init__(self, url, username=None, password=None,
-        apiKey=None, secretKey=None):
+        apiKey=None, secretKey=None, password_encode=True):
         '''
         url and either a username and password or apiKey and secretKey
         '''
@@ -51,7 +51,8 @@ class BaseClient(object):
             #Will throw error if login fails.
             self.login_response = self.__execute__('login', {
                 'username': self.username,
-                'password': hashlib.md5(self.password).hexdigest()})
+                'password': (hashlib.md5(self.password).hexdigest()
+                    if password_encode else self.password)})
             self.is_connected = True
         else:
             class SignatureCaller(object):
